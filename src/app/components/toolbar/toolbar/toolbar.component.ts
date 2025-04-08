@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NestedMenuComponent } from "../../../commons/components/nested-menu/nested-menu/nested-menu.component";
+import { MenuItemsComponent } from "../../../commons/components/menu-items/menu-items.component";
 import { ToolbarService } from "../../../services/toolbar.service";
 import { MenuItem } from "../../../models/menu-item.model";
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [ NestedMenuComponent ],
+  imports: [ MenuItemsComponent ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.css'
 })

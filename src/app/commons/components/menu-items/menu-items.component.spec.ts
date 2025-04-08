@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NestedMenuComponent } from './nested-menu.component';
+import { MenuItemsComponent } from './menu-items.component';
 
 describe('NestedMenuComponent', () => {
-  let component: NestedMenuComponent;
-  let fixture: ComponentFixture<NestedMenuComponent>;
+  let component: MenuItemsComponent;
+  let fixture: ComponentFixture<MenuItemsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NestedMenuComponent]
+      imports: [MenuItemsComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NestedMenuComponent);
+    fixture = TestBed.createComponent(MenuItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
