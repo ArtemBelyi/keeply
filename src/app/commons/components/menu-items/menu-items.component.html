@@ -1,1 +1,5 @@
+<button mat-button [matMenuTriggerFor]="mainMenu">{{ buttonLabel }}</button>
 
+<mat-menu #mainMenu="matMenu">
+  <app-menu-item *ngFor="let item of menuItems" [item]="item" />
+</mat-menu>

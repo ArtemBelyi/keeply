@@ -3,11 +3,12 @@ import { MenuItem } from "../../../models/menu-item.model";
 import { MatMenu, MatMenuItem, MatMenuTrigger } from "@angular/material/menu";
 import { NgForOf, NgIf, NgTemplateOutlet } from "@angular/common";
 import { MatButton } from "@angular/material/button";
+import { MenuItemComponent } from "../menu-item/menu-item.component";
 
 @Component({
   selector: 'app-menu-items',
   standalone: true,
-  imports: [MatMenu, MatMenuTrigger, NgForOf, MatMenuItem, MatButton, NgIf, NgTemplateOutlet],
+  imports: [MatMenu, MatMenuTrigger, NgForOf, MatMenuItem, MatButton, NgIf, NgTemplateOutlet, MenuItemComponent],
   templateUrl: './menu-items.component.html',
   styleUrl: './menu-items.component.css'
 })
