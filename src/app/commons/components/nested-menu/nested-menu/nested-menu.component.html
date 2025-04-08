@@ -1,0 +1,24 @@
+<button mat-button [matMenuTriggerFor]="rootMenu">{{ buttonLabel }}</button>
+
+<mat-menu #rootMenu="matMenu">
+  <ng-container *ngFor="let item of menuItems; let i = index">
+    <button
+      mat-menu-item
+      [matMenuTriggerFor]="getSubMenu(item, i)"
+      [disabled]="item.disabled"
+      (click)="!item.children && itemSelected(item)">
+      {{item.label}}
+    </button>
+
+    <mat-menu *ngIf="item.children" #subMenu>
+      <button
+        *ngFor="let child of item.children; let j = index"
+        mat-menu-item
+        [matMenuTriggerFor]="getSubMenu(child, j)"
+        [disabled]="child.disabled"
+        (click)="!child.children && itemSelected(child)">
+        {{child.label}}
+      </button>
+    </mat-menu>
+  </ng-container>
+</mat-menu>
