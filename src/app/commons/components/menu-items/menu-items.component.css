@@ -1,0 +1,6 @@
+[cdkMenuItem] {
+  display: flex;
+  justify-content: space-between;
+  width: 8rem;
+  gap: 1rem;
+}
