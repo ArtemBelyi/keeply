@@ -1,22 +1,22 @@
-.example-tree-invisible {
+.kdbx-tree-invisible {
   display: none;
 }
 
-.example-tree ul,
-.example-tree li {
+.kdbx-tree ul,
+.kdbx-tree li {
   margin-top: 0;
   margin-bottom: 0;
   list-style-type: none;
 }
-.example-tree-node {
+.kdbx-tree-node {
   display: block;
   line-height: 40px;
 }
 
-.example-tree-node .example-tree-node {
-  padding-left: 40px;
+.kdbx-tree-node .kdbx-tree-node {
+  padding-left: 20px;
 }
 
-.example-toggle {
+.kdbx-tree-node__toggle {
   vertical-align: middle;
 }

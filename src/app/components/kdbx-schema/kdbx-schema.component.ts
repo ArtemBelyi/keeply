@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TreeNode } from "../../models/kdbx-schema.model";
 import { KdbxService } from "../../services/kdbx.service";
 import { CdkNestedTreeNode, CdkTree, CdkTreeNodeDef, CdkTreeNodeOutlet, CdkTreeNodeToggle } from "@angular/cdk/tree";
@@ -19,18 +19,21 @@ import { MatIconButton } from "@angular/material/button";
     CdkTreeNodeDef
   ],
   templateUrl: './kdbx-schema.component.html',
-  styleUrl: './kdbx-schema.component.css'
+  styleUrl: './kdbx-schema.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class KdbxSchemaComponent {
-  @ViewChild(CdkTree) tree!: CdkTree<TreeNode>;
 
-  kdbxData: ArrayDataSource<TreeNode>;
+  public readonly kdbxData: ArrayDataSource<TreeNode>;
 
-  childrenAccessor = (dataNode: TreeNode) => dataNode.children;
+  /** Function to access children of a tree node */
+  public readonly childrenAccessor = (dataNode: TreeNode): TreeNode[] => dataNode.children;
 
-  hasChild = (_: number, node: TreeNode) => !!node.children && node.children.length > 0;
+  /** Function to determine if a node has children */
+  public readonly hasChild = (_: number, node: TreeNode): boolean => 
+    Array.isArray(node.children) && node.children.length > 0;
 
-  constructor(private kdbxService: KdbxService) {
+  constructor(private readonly kdbxService: KdbxService) {
     this.kdbxData = new ArrayDataSource<TreeNode>(this.kdbxService.kdbxData);
   }
 }
