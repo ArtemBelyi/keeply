@@ -1,13 +1,12 @@
 import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
 import { MenuItem } from "../../../models/menu-item.model";
-import { NgForOf, NgIf, NgTemplateOutlet } from "@angular/common";
-import { MatButton } from "@angular/material/button";
+import { NgForOf, NgIf } from "@angular/common";
 import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from "@angular/cdk/menu";
 
 @Component({
   selector: 'app-menu-items',
   standalone: true,
-  imports: [ NgForOf, MatButton, NgIf, NgTemplateOutlet, CdkMenuItem, CdkMenu, CdkMenuTrigger],
+  imports: [ NgForOf, NgIf, CdkMenuItem, CdkMenu, CdkMenuTrigger],
   templateUrl: './menu-items.component.html',
   styleUrl: './menu-items.component.css'
 })
