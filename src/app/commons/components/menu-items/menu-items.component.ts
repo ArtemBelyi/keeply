@@ -1,5 +1,5 @@
 import { Component, Input, ViewChild, TemplateRef } from '@angular/core';
-import { MenuItem } from "../../../models/menu-item.model";
+import { MenuItem } from "../../../types/menu-item";
 import { NgForOf, NgIf } from "@angular/common";
 import { CdkMenu, CdkMenuItem, CdkMenuTrigger } from "@angular/cdk/menu";
 

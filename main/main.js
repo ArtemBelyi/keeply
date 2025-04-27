@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron/main');
+const { app, BrowserWindow, ipcMain } = require('electron/main');
 
 const isDev = process.argv.slice(1).some((val) => val === "--dev");
 const path = require("path");
@@ -10,7 +10,8 @@ function createWindow () {
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      contextIsolation: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'preload.js')
     }
   })
 
@@ -43,4 +44,9 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+// IPC: загрузка базы
+ipcMain.handle('load-kdbx-db', async (_event, filePath, password) => {
+  return { filePath, password };
 })

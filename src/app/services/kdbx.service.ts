@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TreeNode } from "../models/kdbx-schema.model";
+import { TreeNode } from "../types/kdbx-schema";
+import { getWindow } from "../utils/get-window";
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +38,10 @@ export class KdbxService {
       ],
     },
   ];
+
+  async openDatabase(filePath: string, password: string): Promise<{ filePath: string, password: string }> {
+    console.log("openDatabase");
+    const win = getWindow();
+    return win?.kdbxApi.loadDatabase(filePath, password);
+  }
 }
