@@ -39,9 +39,7 @@ export class KdbxService {
     },
   ];
 
-  async openDatabase(filePath: string, password: string): Promise<{ filePath: string, password: string }> {
-    console.log("openDatabase");
-    const win = getWindow();
-    return win?.kdbxApi.loadDatabase(filePath, password);
+  async openDatabase(filePath: string, password: string): Promise<any> {
+    return getWindow()?.kdbxApi.loadDatabase(filePath, password);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TreeNode } from "../../types/kdbx-schema";
 import { KdbxService } from "../../services/kdbx.service";
 import { CdkNestedTreeNode, CdkTree, CdkTreeNodeDef, CdkTreeNodeOutlet, CdkTreeNodeToggle } from "@angular/cdk/tree";
@@ -22,10 +22,7 @@ import { MatIconButton } from "@angular/material/button";
   styleUrl: './kdbx-schema.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class KdbxSchemaComponent implements OnInit {
-
-  private readonly path: string = "TEST_PATH";
-  private readonly password: string = "QWERTY";
+export class KdbxSchemaComponent {
 
   public readonly kdbxData: ArrayDataSource<TreeNode>;
 
@@ -38,9 +35,5 @@ export class KdbxSchemaComponent implements OnInit {
 
   constructor(private readonly kdbxService: KdbxService) {
     this.kdbxData = new ArrayDataSource<TreeNode>(this.kdbxService.kdbxData);
-  }
-
-  ngOnInit() {
-    this.kdbxService.openDatabase(this.path, this.password).then(res => console.log(res));
   }
 }
