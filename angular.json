@@ -7,15 +7,15 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "source/renderer",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/keeply",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
+            "index": "source/renderer/index.html",
+            "browser": "source/renderer/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -28,10 +28,10 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
-              "src/styles.scss"
+              "source/renderer/styles.scss"
             ],
             "scripts": [],
-            "server": "src/main.server.ts",
+            "server": "source/renderer/main.server.ts",
             "prerender": true,
             "ssr": {
               "entry": "server.ts"
@@ -92,7 +92,7 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/magenta-violet.css",
-              "src/styles.scss"
+              "source/renderer/styles.scss"
             ],
             "scripts": []
           }

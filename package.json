@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "wait-on": "wait-on tcp:4200",
-    "electron": "electron ./main/main.js --dev",
+    "electron": "electron ./source/main/main.js --dev",
     "start": "concurrently \"ng serve\" \"npm run wait-on && npm run electron\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
