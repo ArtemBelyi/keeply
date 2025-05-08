@@ -1,13 +1,12 @@
-const { app, BrowserWindow, ipcMain } = require('electron/main');
-
-const fs = require('fs');
-const kdbxweb = require('kdbxweb');
+import { app, BrowserWindow, ipcMain } from 'electron';
+import * as fs from 'fs';
+import * as kdbxweb from 'kdbxweb';
+import * as path from 'path';
+import * as url from 'url';
 
 const isDev = process.argv.slice(1).some((val) => val === "--dev");
-const path = require("path");
-const url = require("url");
 
-function createWindow () {
+function createWindow(): void {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
@@ -17,7 +16,7 @@ function createWindow () {
       contextIsolation: true,
       preload: path.join(__dirname, 'preload.js')
     }
-  })
+  });
 
   if (isDev) {
     void win.loadURL(
@@ -32,7 +31,7 @@ function createWindow () {
   } else {
     void win.loadURL(
       url.format({
-        pathname: path.join(__dirname, "../dist/subd/index.html"),
+        pathname: path.join(__dirname, "../renderer/index.html"),
         protocol: "file:",
         slashes: true,
       })
@@ -41,17 +40,17 @@ function createWindow () {
 }
 
 app.whenReady().then(() => {
-  createWindow()
-})
+  createWindow();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 
 // IPC: загрузка базы
-ipcMain.handle('load-kdbx-db', async (_event, filePath, password) => {
+ipcMain.handle('load-kdbx-db', async (_event: Electron.IpcMainInvokeEvent, filePath: string, password: string) => {
   try {
     const arrayBuffer = readFileAsArrayBuffer(filePath);
     const credentials = createCredentials(password);
@@ -59,16 +58,16 @@ ipcMain.handle('load-kdbx-db', async (_event, filePath, password) => {
 
     return { success: true, db: db.getDefaultGroup() };
   } catch (error) {
-    return { success: false, error: error.message };
+    return { success: false, error: (error as Error).message };
   }
-})
+});
 
-function readFileAsArrayBuffer(filePath) {
+function readFileAsArrayBuffer(filePath: string): ArrayBuffer {
   const fileBuffer = fs.readFileSync(filePath);
   return fileBuffer.buffer.slice(fileBuffer.byteOffset, fileBuffer.byteOffset + fileBuffer.byteLength);
 }
 
-function createCredentials(password) {
+function createCredentials(password: string): kdbxweb.Credentials {
   const protectedPassword = kdbxweb.ProtectedValue.fromString(password);
   return new kdbxweb.Credentials(protectedPassword);
-}
+} 

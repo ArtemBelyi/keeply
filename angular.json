@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/keeply",
+            "outputPath": "dist/renderer",
             "index": "source/renderer/index.html",
             "browser": "source/renderer/main.ts",
             "polyfills": [

@@ -4,10 +4,10 @@
   "scripts": {
     "ng": "ng",
     "wait-on": "wait-on tcp:4200",
-    "electron": "electron ./source/main/main.js --dev",
-    "start": "concurrently \"ng serve\" \"npm run wait-on && npm run electron\"",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build:main": "tsc -p source/main/tsconfig.json",
+    "electron": "electron ./dist/main/main.js --dev",
+    "start": "concurrently \"ng serve\" \"npm run wait-on && npm run build:main && npm run electron\"",
+    "build": "ng build && npm run build:main",
     "test": "ng test",
     "serve:ssr:keeply": "node dist/keeply/server/server.mjs"
   },
