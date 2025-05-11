@@ -1,22 +1,3 @@
-<div class="app-container">
-  <app-header></app-header>
-
-  <as-split class="app-content" direction="vertical" unit="percent" [gutterSize]="6">
-    <as-split-area>
-      <as-split direction="horizontal" [gutterSize]="6">
-        <as-split-area [size]="25" [minSize]="10" [maxSize]="40">
-          <app-sidebar></app-sidebar>
-        </as-split-area>
-        <as-split-area>
-          <app-content></app-content>
-        </as-split-area>
-      </as-split>
-    </as-split-area>
-
-    <as-split-area [size]="15" [minSize]="5" [maxSize]="30">
-      <app-footer></app-footer>
-    </as-split-area>
-  </as-split>
-</div>
-
-
+<app-header></app-header>
+<app-content></app-content>
+<app-footer></app-footer>

@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { TreeNode } from "../../types/kdbx-schema";
-import { KdbxService } from "../../services/kdbx.service";
+import { KdbxService } from "../../../../core/services/kdbx.service";
+import { TreeNode } from "../../../../core/models/kdbx.model";
 import { CdkNestedTreeNode, CdkTree, CdkTreeNodeDef, CdkTreeNodeOutlet, CdkTreeNodeToggle } from "@angular/cdk/tree";
 import { ArrayDataSource } from "@angular/cdk/collections";
 import { MatIcon } from "@angular/material/icon";

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuItemsComponent } from "../../../commons/components/menu-items/menu-items.component";
-import { ToolbarService } from "../../../services/toolbar.service";
-import { MenuItem } from "../../../types/menu-item";
+import { MenuItemsComponent } from "../menu-items/menu-items.component";
+import { ToolbarService } from "../../../core/services/toolbar.service";
+import { MenuItem } from "../models/menu-item.model";
 import { CdkMenuTrigger } from "@angular/cdk/menu";
 
 @Component({

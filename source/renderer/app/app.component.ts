@@ -10,5 +10,4 @@ import { LayoutComponent } from "./layout/layout/layout/layout.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'keeply';
 }

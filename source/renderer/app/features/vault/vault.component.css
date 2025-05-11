@@ -1,0 +1,10 @@
+.vault-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.vault-content {
+  height: 100%;
+  width: 100%;
+}

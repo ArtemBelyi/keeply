@@ -1,23 +1,11 @@
 import { Component } from '@angular/core';
-import { KdbxService } from "../../../services/kdbx.service";
+import { VaultComponent } from "../../../features/vault/vault.component";
 
 @Component({
   selector: 'app-content',
   standalone: true,
-  imports: [],
+  imports: [ VaultComponent ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
-export class ContentComponent {
-
-  private readonly path: string = "D:/test_database.kdbx";
-  private readonly password: string = "qwerty";
-
-  constructor(private readonly kdbxService: KdbxService) {
-  }
-
-  public connectToBd() {
-    this.kdbxService.openDatabase(this.path, this.password).then(res => console.log(res));
-  }
-
-}
+export class ContentComponent {}

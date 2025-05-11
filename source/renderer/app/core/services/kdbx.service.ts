@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TreeNode } from "../types/kdbx-schema";
-import { getWindow } from "../utils/get-window";
+import { TreeNode } from "../models/kdbx.model";
+import { getWindow } from "../../utils/get-window";
 
 @Injectable({
   providedIn: 'root'

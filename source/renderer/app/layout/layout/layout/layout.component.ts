@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../../header/header/header.component";
-import { SidebarComponent } from "../../sidebar/sidebar/sidebar.component";
 import { ContentComponent } from "../../content/content/content.component";
 import { FooterComponent } from "../../footer/footer/footer.component";
 import { SplitAreaComponent, SplitComponent } from "angular-split";
@@ -10,7 +9,6 @@ import { SplitAreaComponent, SplitComponent } from "angular-split";
   standalone: true,
   imports: [
     HeaderComponent,
-    SidebarComponent,
     ContentComponent,
     FooterComponent,
     SplitComponent,
