@@ -5,17 +5,17 @@ import { FooterComponent } from "../../footer/footer/footer.component";
 import { SplitAreaComponent, SplitComponent } from "angular-split";
 
 @Component({
-  selector: 'app-layout',
-  standalone: true,
-  imports: [
-    HeaderComponent,
-    ContentComponent,
-    FooterComponent,
-    SplitComponent,
-    SplitAreaComponent
-  ],
-  templateUrl: './layout.component.html',
-  styleUrl: './layout.component.css'
+    selector: 'app-layout',
+    imports: [
+        HeaderComponent,
+        ContentComponent,
+        FooterComponent,
+        SplitComponent,
+        SplitAreaComponent
+    ],
+    templateUrl: './layout.component.html',
+    standalone: true,
+    styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
 

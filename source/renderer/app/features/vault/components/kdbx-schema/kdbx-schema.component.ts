@@ -8,7 +8,6 @@ import { MatIconButton } from "@angular/material/button";
 
 @Component({
   selector: 'app-kdbx-schema',
-  standalone: true,
   imports: [
     CdkTree,
     CdkNestedTreeNode,
@@ -20,6 +19,7 @@ import { MatIconButton } from "@angular/material/button";
   ],
   templateUrl: './kdbx-schema.component.html',
   styleUrl: './kdbx-schema.component.css',
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class KdbxSchemaComponent {
