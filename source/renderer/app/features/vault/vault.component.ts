@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { SplitAreaComponent, SplitComponent } from "angular-split";
 import { KdbxSchemaComponent } from "./components/kdbx-schema/kdbx-schema.component";
-import { KdbxService } from "../../core/services/kdbx.service";
+import { VaultStore } from "./store/vault.store";
 
 @Component({
   selector: 'app-vault',
@@ -11,17 +11,21 @@ import { KdbxService } from "../../core/services/kdbx.service";
     KdbxSchemaComponent
   ],
   templateUrl: './vault.component.html',
+  styleUrl: './vault.component.css',
+  providers: [VaultStore],
   standalone: true,
-  styleUrl: './vault.component.css'
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VaultComponent {
   private readonly path: string = "D:/test_database.kdbx";
   private readonly password: string = "qwerty";
+  readonly store = inject(VaultStore);
 
-  constructor(private readonly kdbxService: KdbxService) {
-  }
+  vault = this.store.vault;
 
   public connectToBd() {
-    this.kdbxService.openDatabase(this.path, this.password).then(res => console.log(res));
+    this.store.loadVault([this.path, this.password])
+
+    console.log(this.vault())
   }
 }

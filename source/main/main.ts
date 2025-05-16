@@ -70,4 +70,4 @@ function readFileAsArrayBuffer(filePath: string): ArrayBuffer {
 function createCredentials(password: string): kdbxweb.Credentials {
   const protectedPassword = kdbxweb.ProtectedValue.fromString(password);
   return new kdbxweb.Credentials(protectedPassword);
-} 
+}
