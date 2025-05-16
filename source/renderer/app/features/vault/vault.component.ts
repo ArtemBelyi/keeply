@@ -5,6 +5,7 @@ import { VaultStore } from "./store/vault.store";
 
 @Component({
   selector: 'app-vault',
+  standalone: true,
   imports: [
     SplitAreaComponent,
     SplitComponent,
@@ -13,7 +14,6 @@ import { VaultStore } from "./store/vault.store";
   templateUrl: './vault.component.html',
   styleUrl: './vault.component.css',
   providers: [VaultStore],
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class VaultComponent {
