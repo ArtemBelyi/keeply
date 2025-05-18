@@ -1,7 +1,8 @@
+import { Group } from "../../../core/models/kdbx.model";
+
 interface Vault {
   name: string;
-  entries: Array<any>;
-  groups: Array<any>;
+  groups: Array<Group>;
 }
 
 export interface VaultState {

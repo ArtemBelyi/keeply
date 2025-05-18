@@ -1,5 +1,5 @@
 <div class="kdbx-schema-container">
-  <cdk-tree #tree [dataSource]="kdbxData" [childrenAccessor]="childrenAccessor">
+  <cdk-tree #tree [dataSource]="kdbxData()" [childrenAccessor]="childrenAccessor">
 
     <cdk-nested-tree-node *cdkTreeNodeDef="let node"
                           class="kdbx-tree-node">
