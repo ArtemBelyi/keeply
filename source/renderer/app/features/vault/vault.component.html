@@ -1,22 +1,13 @@
 <div class="vault-container">
-  <div></div>
-
-  <as-split class="vault-content" direction="vertical" unit="percent" [gutterSize]="6">
-    <as-split-area>
-      <as-split direction="horizontal" [gutterSize]="6">
-        <as-split-area [size]="25" [minSize]="10" [maxSize]="40">
-          <app-kdbx-schema></app-kdbx-schema>
-        </as-split-area>
-        <as-split-area>
-          <div>
-            <button (click)="connectToBd()">Connect to 75</button>
-          </div>
-        </as-split-area>
-      </as-split>
-    </as-split-area>
-
-    <as-split-area [size]="15" [minSize]="5" [maxSize]="30">
-      <div>Vault footer</div>
-    </as-split-area>
-  </as-split>
+  <div class="vault-container-item">
+    <app-kdbx-schema></app-kdbx-schema>
+  </div>
+  <div class="vault-container-item">
+    <button (click)="connectToBd()">Connect to 75</button>
+  </div>
+  <div class="vault-container-item">
+    Describe
+  </div>
 </div>
+
+

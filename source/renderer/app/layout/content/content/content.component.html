@@ -1,19 +1,8 @@
-<mat-tab-group
-  [selectedIndex]="selectedId()"
-  (selectedIndexChange)="setSelectedId($event)">
+<div class="content-wrapper">
+  <div class="content-wrapper-item"><app-label-list></app-label-list></div>
+  <div class="content-wrapper-item"><app-vault></app-vault></div>
+</div>
 
-  @for (tab of tabs; track tab.id) {
-    <mat-tab [label]="tab.name">
-      <div class="tab-content"><app-vault></app-vault></div>
-    </mat-tab>
-  }
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon (click)="addTab($event)">add_circle</mat-icon>
-    </ng-template>
-  </mat-tab>
-
-</mat-tab-group>
 
 
 
