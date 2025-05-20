@@ -1,11 +1,11 @@
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { KdbxSchemaComponent } from "./components/kdbx-schema/kdbx-schema.component";
+import { GroupsTreeComponent } from './components/groups-tree/groups-tree.component';
 import { VaultStore } from "./store/vault.store";
 
 @Component({
   selector: 'app-vault',
   standalone: true,
-  imports: [KdbxSchemaComponent],
+  imports: [GroupsTreeComponent],
   templateUrl: './vault.component.html',
   styleUrl: './vault.component.css',
   providers: [VaultStore],

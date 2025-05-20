@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LayoutComponent } from "./layout/layout/layout/layout.component";
+import { ContentComponent } from "./layout/content/content/content.component";
 
 @Component({
   selector: 'app-root',
-  imports: [ LayoutComponent ],
+  imports: [ContentComponent],
   templateUrl: './app.component.html',
   standalone: true,
   styleUrl: './app.component.css'

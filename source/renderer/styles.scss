@@ -8,13 +8,5 @@ body {
   color: var(--default-text-color);
 }
 
-.mat-mdc-tab-label-container {
-  .mat-mdc-tab-labels {
-    .mat-mdc-tab.mdc-tab:last-of-type {
-       pointer-events: none;
-    }
-  }
-}
-
 
 
