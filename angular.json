@@ -27,7 +27,6 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/magenta-violet.css",
               "source/renderer/styles.scss"
             ],
             "scripts": [],
@@ -91,7 +90,6 @@
               }
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/magenta-violet.css",
               "source/renderer/styles.scss"
             ],
             "scripts": []
