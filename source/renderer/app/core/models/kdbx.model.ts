@@ -10,7 +10,7 @@ type Uuid = {
   readonly empty: boolean;
 }
 
-type Entry = {
+export type Entry = {
   readonly uuid: Uuid;
   readonly fields: EntryField;
 }

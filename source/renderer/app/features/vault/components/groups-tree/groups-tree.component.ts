@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { Group } from "../../../../core/models/kdbx.model";
+import { GroupNode } from "../../models/vault.model";
 import { VaultStore } from "../../store/vault.store";
 import { computed } from "@angular/core";
 import { TreeModule } from 'primeng/tree';
@@ -15,26 +16,20 @@ import { TreeModule } from 'primeng/tree';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsTreeComponent {
+  selectedGroup!: GroupNode;
   private readonly store = inject(VaultStore);
-  selectedGroup!: Group;
 
   public readonly groupsData = computed(() => {
-    interface TreeNode {
-      key: string;
-      label: string;
-      data: Group;
-      entries: any[];
-      children: TreeNode[];
-    }
+    return this.store.groups().map(this.transformGroupToNode);
+  });
 
-    const transformGroup = (group: Group): TreeNode => ({
+  private transformGroupToNode = (group: Group): GroupNode => {
+    return {
       key: group.uuid.id,
       label: group.name,
       data: group,
       entries: group.entries,
-      children: group.groups?.map(subGroup => transformGroup(subGroup)) || []
-    });
-
-    return this.store.groups().map(group => transformGroup(group));
-  });
+      children: group.groups?.map(this.transformGroupToNode) ?? []
+    };
+  };
 }

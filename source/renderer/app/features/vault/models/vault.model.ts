@@ -1,4 +1,4 @@
-import { Group } from "../../../core/models/kdbx.model";
+import { Group, Entry } from "../../../core/models/kdbx.model";
 
 interface Vault {
   name: string;
@@ -19,4 +19,12 @@ export interface File {
 export interface FileError {
   error: string,
   success: boolean
+}
+
+export interface GroupNode {
+  key: string;
+  label: string;
+  data: Group;
+  entries: Array<Entry>;
+  children: Array<GroupNode>;
 }
