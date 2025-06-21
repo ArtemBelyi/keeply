@@ -2,9 +2,9 @@ import { signalStore, withState, withMethods, patchState } from "@ngrx/signals";
 import { VaultTab, VaultsState } from "../models/vaults.model";
 
 const mockVaultTabs: Array<VaultTab> = [
-  { id: 1, label: "Vault_1" },
-  { id: 2, label: "Vault_2" },
-  { id: 3, label: "Vault_3" }
+  { value: 0, label: "Vault_1" },
+  { value: 1, label: "Vault_2" },
+  { value: 2, label: "Vault_3" }
 ]
 
 export const VaultsStore = signalStore(
@@ -15,7 +15,7 @@ export const VaultsStore = signalStore(
       patchState(store, { tabs: [ ...store.tabs(), tab ]})
     },
     deleteVaultTab(id: number): void {
-      patchState(store, { tabs: store.tabs().filter(tab => tab.id !== id) })
+      patchState(store, { tabs: store.tabs().filter(tab => tab.value !== id) })
     }
   }))
 )

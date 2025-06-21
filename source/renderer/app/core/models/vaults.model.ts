@@ -3,6 +3,6 @@ export type VaultsState = {
 }
 
 export type VaultTab = {
-  id: number;
+  value: number;
   label: string;
 }

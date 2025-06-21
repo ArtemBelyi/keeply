@@ -1,0 +1,17 @@
+<div class="vault-tabs-container">
+  <p-tabs [value]="vaultsStore.tabs()[0].value">
+      <p-tablist>
+        @for (tab of vaultsStore.tabs(); track tab.value) {
+          <p-tab [value]="tab.value">{{ tab.label }}</p-tab>
+        }
+      </p-tablist>
+
+      <p-tabpanels>
+        @for (tab of vaultsStore.tabs(); track tab.value) {
+          <p-tabpanel [value]="tab.value">
+            <app-vault></app-vault>
+          </p-tabpanel>
+        }
+      </p-tabpanels>
+  </p-tabs>
+</div>
