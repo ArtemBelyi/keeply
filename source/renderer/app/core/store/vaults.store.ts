@@ -1,25 +1,21 @@
-import { patchState, signalStore, withMethods, type } from "@ngrx/signals";
-import { addEntity, withEntities, entityConfig, setAllEntities } from "@ngrx/signals/entities";
-import { VaultTab } from "../models/vaults.model";
+import { signalStore, withState, withMethods, patchState } from "@ngrx/signals";
+import { VaultTab, VaultsState } from "../models/vaults.model";
 
-
-const vaultsConfig = entityConfig({
-  entity: type<VaultTab>(),
-  collection: 'vaultTabs',
-  selectId: (vault) => vault.id,
-});
+const mockVaultTabs: Array<VaultTab> = [
+  { id: 1, label: "Vault_1" },
+  { id: 2, label: "Vault_2" },
+  { id: 3, label: "Vault_3" }
+]
 
 export const VaultsStore = signalStore(
   { providedIn: 'root' },
-  withEntities<VaultTab>(vaultsConfig),
+  withState<VaultsState>({ tabs: mockVaultTabs }),
   withMethods((store) => ({
-
-    addVault(vault: VaultTab): void {
-      patchState(store, addEntity(vault))
+    addVaultTab(tab: VaultTab): void {
+      patchState(store, { tabs: [ ...store.tabs(), tab ]})
     },
-
-    addVaults(vaults: Array<VaultTab>): void {
-      patchState(store, setAllEntities(vaults))
+    deleteVaultTab(id: number): void {
+      patchState(store, { tabs: store.tabs().filter(tab => tab.id !== id) })
     }
   }))
 )
