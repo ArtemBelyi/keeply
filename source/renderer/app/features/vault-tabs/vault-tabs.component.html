@@ -2,7 +2,17 @@
   <p-tabs [value]="vaultsStore.tabs()[0].value">
       <p-tablist>
         @for (tab of vaultsStore.tabs(); track tab.value) {
-          <p-tab [value]="tab.value">{{ tab.label }}</p-tab>
+            <p-tab [value]="tab.value">
+              <span>{{ tab.label }}</span>
+              <p-button
+                size="small"
+                icon="pi pi-times"
+                [text]="true"
+                [rounded]="true"
+                [style]="{ zIndex: 100 }"
+                (onClick)="deleteVaultTab(tab)($event)"
+              />
+            </p-tab>
         }
       </p-tablist>
 

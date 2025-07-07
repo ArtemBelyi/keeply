@@ -1,3 +1,8 @@
 .vault-tabs-container {
   height: 100%;
 }
+
+:host ::ng-deep .p-tab {
+  gap: var(--default-gap-size);
+  height: var(--default-tab-size);
+}

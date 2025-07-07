@@ -27,9 +27,16 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
      provideAnimationsAsync(),
         providePrimeNG({
-            theme: {
-                preset: KeeplyPreset
-            }
+          theme: {
+            preset: KeeplyPreset
+          },
+          ripple: true,
+          zIndex: {
+            modal: 1100,
+            overlay: 1000,
+            menu: 1000,
+            tooltip: 1100
+          }
         })
   ]
 };
