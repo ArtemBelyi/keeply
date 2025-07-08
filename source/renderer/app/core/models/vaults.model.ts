@@ -1,8 +1,8 @@
 export type VaultsState = {
-  tabs: Array<VaultTab>
+  tabs: Array<VaultTab>;
+  activeIdx: number
 }
 
 export type VaultTab = {
-  value: number;
   label: string;
 }

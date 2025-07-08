@@ -4,7 +4,6 @@ import { VaultsStore } from '../../core/store/vaults.store';
 import { VaultComponent } from '../vault/vault.component';
 import { CommonModule } from '@angular/common';
 import { Button } from "primeng/button";
-import { VaultTab } from "../../core/models/vaults.model";
 
 @Component({
   selector: 'app-vault-tabs',
@@ -16,11 +15,11 @@ import { VaultTab } from "../../core/models/vaults.model";
 export class VaultTabsComponent {
   readonly vaultsStore = inject(VaultsStore)
 
-  deleteVaultTab(tab: VaultTab) {
+  deleteVaultTab(idx: number) {
     return (event: MouseEvent) => {
       event.preventDefault();
       event.stopPropagation();
-      this.vaultsStore.deleteVaultTab(tab.value);
+      this.vaultsStore.deleteVaultTab(idx);
     };
   }
 }

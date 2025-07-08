@@ -1,8 +1,8 @@
 <div class="vault-tabs-container">
-  <p-tabs [value]="vaultsStore.tabs()[0].value">
+  <p-tabs [value]="vaultsStore.activeIdx()">
       <p-tablist>
-        @for (tab of vaultsStore.tabs(); track tab.value) {
-            <p-tab [value]="tab.value">
+        @for (tab of vaultsStore.tabs(); track tab.label; let idx = $index) {
+            <p-tab [value]="idx" (click)="vaultsStore.setActiveIdx(idx)">
               <span>{{ tab.label }}</span>
               <p-button
                 size="small"
@@ -10,15 +10,15 @@
                 [text]="true"
                 [rounded]="true"
                 [style]="{ zIndex: 100 }"
-                (onClick)="deleteVaultTab(tab)($event)"
+                (onClick)="deleteVaultTab(idx)($event)"
               />
             </p-tab>
         }
       </p-tablist>
 
       <p-tabpanels>
-        @for (tab of vaultsStore.tabs(); track tab.value) {
-          <p-tabpanel [value]="tab.value">
+        @for (tab of vaultsStore.tabs(); track tab.label; let idx = $index) {
+          <p-tabpanel [value]="idx">
             <app-vault></app-vault>
           </p-tabpanel>
         }

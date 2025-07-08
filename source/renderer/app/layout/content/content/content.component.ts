@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { VaultsStore } from '../../../core/store/vaults.store';
-import { VaultTab } from '../../../core/models/vaults.model';
 import { VaultTabsComponent } from '../../../features/vault-tabs/vault-tabs.component';
 
 @Component({
@@ -14,7 +13,6 @@ export class ContentComponent {
   readonly tabsStore = inject(VaultsStore)
 
   addVaultTab(): void {
-    const tab: VaultTab = { value: this.tabsStore.tabs().length + 1, label: `Vault_${this.tabsStore.tabs().length + 1}` }
-    this.tabsStore.addVaultTab(tab)
+    this.tabsStore.addVaultTab()
   }
 }
